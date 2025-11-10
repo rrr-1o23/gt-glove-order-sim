@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from 'next/link'
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -18,7 +18,7 @@ export default function Home() {
             GT Glove Order System
           </h1>
           <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-
+            
           </p>
         </div>
         <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
@@ -36,7 +36,8 @@ export default function Home() {
             会社概要
           </h1>
           <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            <strong className="font-bold">住所:</strong> 〒000-0000 東京都新宿区西新宿２丁目８−１
+            <strong className="font-bold">住所:</strong> 〒000-0000
+            東京都新宿区西新宿２丁目８−１
           </p>
           <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
             <strong className="font-bold">E-mail:</strong> info@gt-glove.jp
