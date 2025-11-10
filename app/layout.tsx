@@ -14,7 +14,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "GT-Baseball-Glove",
-  description: "GTブランドの野球グローブをカスタムオーダーできる公式販売システムです。豊富なオプションから自分だけのオリジナルグローブをデザイン、注文できます。",
+  description:
+    "GTブランドの野球グローブをカスタムオーダーできる公式販売システムです。豊富なオプションから自分だけのオリジナルグローブをデザイン、注文できます。",
 };
 
 export default function RootLayout({
