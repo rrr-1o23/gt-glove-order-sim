@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+  # 'web' サービス (Next.js アプリケーション)
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # ホストのポート 3000 をコンテナのポート 3000 にマッピング
+    ports:
+      - "3000:3000"
+    # ボリュームマウントの設定
+    volumes:
+      # カレントディレクトリ (ホスト) をコンテナの /app にマウント
+      # これにより、ローカルでのコード変更が即座にコンテナに反映されます (ホットリロード)
+      - .:/app
+      # node_modules はホストからマウントせず、コンテナ内のものを使用
+      # (OS間の互換性問題を避けるため)
+      - /app/node_modules
+      # Next.js のビルドキャッシュもコンテナ内のものを使用
+      - /app/.next
+    environment:
+      # 開発環境であることを明示
+      NODE_ENV: development
