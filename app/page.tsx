@@ -18,13 +18,13 @@ export default function Home() {
             GT Glove Order System
           </h1>
           <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            
+
           </p>
         </div>
         <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
           <Link
             className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] sm:w-auto"
-            href="/"
+            href="/order"
             rel="noopener noreferrer"
           >
             オーダーを始める
