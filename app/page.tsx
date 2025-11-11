@@ -27,6 +27,14 @@ export default function Home() {
         >
           オーダーを始める
         </Link>
+
+        <Link
+          className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-[#F9F9F9] px-5 my-5 text-black transition-colors hover:bg-gray-200 sm:w-auto"
+          href="/demo"
+          rel="noopener noreferrer"
+        >
+          テストページへ（開発用）
+        </Link>
       </div>
 
       <div className="flex flex-col items-center gap-6 mt-15 text-center sm:items-start sm:text-left">

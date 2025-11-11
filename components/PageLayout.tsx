@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 
 // children: このコンポーネントで囲むコンテンツ（ページ本体）を受け取る
 type PageLayoutProps = {

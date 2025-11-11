@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import PageLayout from "@/components/PageLayout";
 
 export const metadata: Metadata = {
-  title: "テストページ | GT",
+  title: "テストページ（開発用） | GT",
   description: "これはテストページです．",
 };
 
-export default function OrderPage() {
+export default function DemoPage() {
   return (
     <PageLayout>
       <Image
