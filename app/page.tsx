@@ -8,12 +8,10 @@ export default function Home() {
       <Image
         className="dark:invert mb-8"
         src="/gt.svg"
-        alt="Next.js logo"
+        alt="GT logo"
         width={50}
         height={50}
-        sizes="(max-width: 640px) 50px, 50px"
         priority
-        unoptimized={true}
       />
       <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
         <h1 className="max-w-xs text-3xl font-semibold leading-10 my-20 tracking-tight text-black dark:text-zinc-50">

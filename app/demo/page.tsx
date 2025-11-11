@@ -13,7 +13,7 @@ export default function DemoPage() {
       <Image
         className="dark:invert"
         src="/gt.svg"
-        alt="Next.js logo"
+        alt="GT logo"
         width={50}
         height={50}
         priority
