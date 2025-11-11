@@ -17,8 +17,8 @@ export default function OrderPage() {
         alt="Next.js logo"
         width={50}
         height={50}
-        sizes="(max-width: 640px) 50px, 50px"
         priority
+        unoptimized={true}
       />
       <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
         <p className="max-w-md text-lg leading-8 my-10 text-zinc-600 dark:text-zinc-400">
