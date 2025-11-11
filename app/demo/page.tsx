@@ -16,6 +16,7 @@ export default function DemoPage() {
         alt="Next.js logo"
         width={50}
         height={50}
+        sizes="(max-width: 640px) 50px, 50px"
         priority
       />
     </PageLayout>

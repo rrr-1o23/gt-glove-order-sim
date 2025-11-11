@@ -11,6 +11,7 @@ export default function Home() {
         alt="Next.js logo"
         width={50}
         height={50}
+        sizes="(max-width: 640px) 50px, 50px"
         priority
       />
       <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
