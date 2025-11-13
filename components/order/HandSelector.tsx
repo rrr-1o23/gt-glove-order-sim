@@ -15,8 +15,7 @@ export function HandSelector({
     "ring-2 ring-neutral-700 ring-inset focus-visible:ring-2 focus-visible:ring-neutral-700 focus-visible:ring-inset";
 
   return (
-    <div>
-      <div className="flex flex-col items-center gap-6 text-center sm-items-start sm-text-left">
+      <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
         <p className="max-w-md text-lg leading-8 mt-10 text-zinc-600 dark:text-zinc-400">
           利き腕を選択してください
         </p>
@@ -38,6 +37,5 @@ export function HandSelector({
           </Button>
         </div>
       </div>
-    </div>
   );
 }
