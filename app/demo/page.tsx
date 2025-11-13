@@ -4,11 +4,13 @@ import Image from "next/image";
 import { useState } from "react";
 import PageLayout from "@/components/PageLayout";
 import { CategorySelector } from "@/components/order/CategorySelector";
+import { HandSelector } from "@/components/order/HandSelector";
 import { PositionSelector } from "@/components/order/PositionSelector";
 
 export default function OrderPage() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedPosition, setSelectedPosition] = useState<string | null>(null);
+  const [selectedHand, setSelectedHand] = useState<string | null>(null);
 
   return (
     <PageLayout>
@@ -30,8 +32,12 @@ export default function OrderPage() {
           onCategoryChange={setSelectedCategory}
         />
 
+        <HandSelector
+          selectedHand={selectedHand}
+          onHandChange={setSelectedHand}
+        />
+
         <PositionSelector
-          isVisible={selectedCategory !== null}
           selectedPosition={selectedPosition}
           onPositionChange={setSelectedPosition}
         />
