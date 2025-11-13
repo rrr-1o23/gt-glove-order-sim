@@ -2,13 +2,18 @@
 
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import {
+  NativeSelect,
+  NativeSelectOptGroup,
+  NativeSelectOption,
+} from "@/components/ui/native-select";
 import PageLayout from "@/components/PageLayout";
 import { useState } from "react";
 
 export default function OrderPage() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [selectedPosition, setSelectedPosition] = useState<string | null>(null);
 
-  // 選択時のスタイルを共通化（フォーカス対応含む）
   const selectedRingStyle =
     "ring-2 ring-neutral-700 ring-inset focus-visible:ring-2 focus-visible:ring-neutral-700 focus-visible:ring-inset";
 
@@ -77,7 +82,7 @@ export default function OrderPage() {
           </div>
         </div>
 
-        {/* --- 👇 ここを変更 --- */}
+        {/* --- ポジション選択 ---*/}
         <div
           className={`
             transition-all duration-500 ease-in-out overflow-hidden
@@ -85,13 +90,41 @@ export default function OrderPage() {
           `}
         >
           <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-            <p className="max-w-md text-lg leading-8 my-10 text-zinc-600 dark:text-zinc-400">
+            <p className="max-w-md text-lg leading-8 mt-10 text-zinc-600 dark:text-zinc-400">
               ポジションを選択してください
             </p>
-            {/* (ここに次の選択肢のボタンを配置) */}
+            <NativeSelect
+              className={
+                "focus-visible:ring-2 focus-visible:ring-neutral-700 focus-visible:ring-inset"
+              }
+            >
+              <NativeSelectOption value="catcher">
+                キャッチャー用
+              </NativeSelectOption>
+              <NativeSelectOption value="pitcher">
+                ピッチャー用
+              </NativeSelectOption>
+              <NativeSelectOption value="pitcher-compact">
+                ピッチャー用（コンパクト）
+              </NativeSelectOption>
+              <NativeSelectOption value="first">
+                ファースト用
+              </NativeSelectOption>
+              <NativeSelectOption value="second">セカンド用</NativeSelectOption>
+              <NativeSelectOption value="third">サード用</NativeSelectOption>
+              <NativeSelectOption value="short">ショート用</NativeSelectOption>
+              <NativeSelectOption value="second-short">
+                セカンド・ショート用
+              </NativeSelectOption>
+              <NativeSelectOption value="all-position">
+                オールポジション用
+              </NativeSelectOption>
+              <NativeSelectOption value="outfield">
+                アウトフィルダー用
+              </NativeSelectOption>
+            </NativeSelect>
           </div>
         </div>
-        {/* --- 👆 ここまで変更 --- */}
       </div>
     </PageLayout>
   );

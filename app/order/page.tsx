@@ -183,10 +183,8 @@ export default function OrderPage() {
               </Button>
             </div>
           </div>
-
         </div>
       </div>
-
     </PageLayout>
   );
 }
