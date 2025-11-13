@@ -6,7 +6,6 @@ import {
 } from "@/components/ui/native-select";
 
 type PositionSelectorProps = {
-  // isVisible: boolean; // 👈 削除
   selectedPosition: string | null;
   onPositionChange: (position: string) => void;
 };

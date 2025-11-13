@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 
-// page.tsx から metadata をこちらに移動
 export const metadata: Metadata = {
   title: "オーダーグラブを始める | GT",
   description:

@@ -4,8 +4,8 @@ import Image from "next/image";
 import { useState } from "react";
 import PageLayout from "@/components/PageLayout";
 import { CategorySelector } from "@/components/order/CategorySelector";
-import { PositionSelector } from "@/components/order/PositionSelector";
 import { HandSelector } from "@/components/order/HandSelector";
+import { PositionSelector } from "@/components/order/PositionSelector";
 
 export default function OrderPage() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
