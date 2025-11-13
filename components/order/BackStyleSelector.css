@@ -1,0 +1,41 @@
+/* 表示アニメーションの定義 */
+@keyframes slideIn {
+  from {
+    max-height: 0;
+    opacity: 0;
+  }
+  to {
+    max-height: 20rem;
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    max-height: 20rem;
+    opacity: 1;
+  }
+  to {
+    max-height: 0;
+    opacity: 0;
+  }
+}
+
+.back-style-container {
+  overflow: hidden;
+  animation-fill-mode: forwards;
+}
+
+.slide-in {
+  animation-name: slideIn;
+  animation-duration: 800ms;
+  animation-timing-function: ease-in-out;
+}
+
+.slide-out {
+  animation-name: slideOut;
+  animation-duration: 800ms;
+  animation-timing-function: ease-in-out;
+  max-height: 0;
+  opacity: 0;
+}

@@ -14,14 +14,16 @@ export default function Home() {
         priority
       />
       <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-        <h1 className="max-w-xs text-3xl font-semibold leading-10 my-20 tracking-tight text-black dark:text-zinc-50">
+        <h1 className="max-w-xs text-3xl font-semibold leading-10 mt-20 tracking-tight text-black dark:text-zinc-50">
           GT Glove Order System
         </h1>
-        <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400"></p>
+        <p className="max-w-md text-lg my-5 leading-8 text-zinc-600 dark:text-zinc-400">
+          あなただけのグローブを作ろう
+        </p>
       </div>
-      <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
+      <div className="flex flex-col gap-4 my-20 text-base font-medium sm:flex-row">
         <Link
-          className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 my-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] sm:w-auto"
+          className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 my-2 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] sm:w-auto"
           href="/order"
           rel="noopener noreferrer"
         >
@@ -29,7 +31,7 @@ export default function Home() {
         </Link>
 
         <Link
-          className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-[#F9F9F9] px-5 my-5 text-black transition-colors hover:bg-gray-200 sm:w-auto"
+          className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-[#F9F9F9] px-5 my-2 text-black transition-colors hover:bg-gray-200 sm:w-auto"
           href="/demo"
           rel="noopener noreferrer"
         >
