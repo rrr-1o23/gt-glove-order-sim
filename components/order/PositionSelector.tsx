@@ -6,13 +6,12 @@ import {
 } from "@/components/ui/native-select";
 
 type PositionSelectorProps = {
-  isVisible: boolean;
+  // isVisible: boolean; // 👈 削除
   selectedPosition: string | null;
   onPositionChange: (position: string) => void;
 };
 
 export function PositionSelector({
-  isVisible,
   selectedPosition,
   onPositionChange,
 }: PositionSelectorProps) {
@@ -21,12 +20,7 @@ export function PositionSelector({
   };
 
   return (
-    <div
-      className={`
-        transition-all duration-500 ease-in-out overflow-hidden
-        ${isVisible ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}
-      `}
-    >
+    <div>
       <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
         <p className="max-w-md text-lg leading-8 mt-10 text-zinc-600 dark:text-zinc-400">
           ポジションを選択してください
