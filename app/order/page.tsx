@@ -1,14 +1,13 @@
-import type { Metadata } from "next";
-import Image from "next/image";
-import PageLayout from "@/components/PageLayout";
+"use client";
 
-export const metadata: Metadata = {
-  title: "オーダーグラブを始める | GT",
-  description:
-    "GTブランドの野球グローブのオーダーシミュレーションを開始します。あなただけのオリジナルグローブを自由にデザインし、注文まで行えます。",
-};
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import PageLayout from "@/components/PageLayout";
+import { useState } from "react";
 
 export default function OrderPage() {
+  const [selectedButton, setSelectedButton] = useState<string | null>(null);
+
   return (
     <PageLayout>
       <Image
@@ -23,6 +22,61 @@ export default function OrderPage() {
         <p className="max-w-md text-lg leading-8 my-10 text-zinc-600 dark:text-zinc-400">
           基本モデルを選ぶ
         </p>
+        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
+          <p>硬式</p>
+          <div className="flex flex-row gap-4">
+            <Button
+              variant="outline"
+              onClick={() => setSelectedButton("h-baseball")}
+              className={
+                selectedButton === "h-baseball"
+                  ? "ring-2 ring-neutral-700 ring-inset"
+                  : ""
+              }
+            >
+              野球用
+            </Button>
+            <Button
+              variant="outline"
+              onClick={() => setSelectedButton("h-softball")}
+              className={
+                selectedButton === "h-softball"
+                  ? "ring-2 ring-neutral-700 ring-inset"
+                  : ""
+              }
+            >
+              ソフト用
+            </Button>
+          </div>
+        </div>
+
+        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
+          <p>軟式</p>
+          <div className="flex flex-row gap-4">
+            <Button
+              variant="outline"
+              onClick={() => setSelectedButton("s-baseball")}
+              className={
+                selectedButton === "s-baseball"
+                  ? "ring-2 ring-neutral-700 ring-inset"
+                  : ""
+              }
+            >
+              野球用
+            </Button>
+            <Button
+              variant="outline"
+              onClick={() => setSelectedButton("s-softball")}
+              className={
+                selectedButton === "s-softball"
+                  ? "ring-2 ring-neutral-700 ring-inset"
+                  : ""
+              }
+            >
+              ソフト用
+            </Button>
+          </div>
+        </div>
       </div>
     </PageLayout>
   );
