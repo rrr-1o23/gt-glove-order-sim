@@ -1,21 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import {
-  NativeSelect,
-  NativeSelectOptGroup,
-  NativeSelectOption,
-} from "@/components/ui/native-select";
-import PageLayout from "@/components/PageLayout";
 import { useState } from "react";
+import PageLayout from "@/components/PageLayout";
+import { CategorySelector } from "@/components/order/CategorySelector";
+import { PositionSelector } from "@/components/order/PositionSelector";
 
 export default function OrderPage() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedPosition, setSelectedPosition] = useState<string | null>(null);
-
-  const selectedRingStyle =
-    "ring-2 ring-neutral-700 ring-inset focus-visible:ring-2 focus-visible:ring-neutral-700 focus-visible:ring-inset";
 
   return (
     <PageLayout>
@@ -32,99 +25,16 @@ export default function OrderPage() {
           基本モデルを選ぶ
         </p>
 
-        {/* --- 硬式 --- */}
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <p>硬式</p>
-          <div className="flex flex-row gap-4">
-            <Button
-              variant="outline"
-              onClick={() => setSelectedCategory("h-baseball")}
-              className={
-                selectedCategory === "h-baseball" ? selectedRingStyle : ""
-              }
-            >
-              野球用
-            </Button>
-            <Button
-              variant="outline"
-              onClick={() => setSelectedCategory("h-softball")}
-              className={
-                selectedCategory === "h-softball" ? selectedRingStyle : ""
-              }
-            >
-              ソフト用
-            </Button>
-          </div>
-        </div>
+        <CategorySelector
+          selectedCategory={selectedCategory}
+          onCategoryChange={setSelectedCategory}
+        />
 
-        {/* --- 軟式 --- */}
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <p>軟式</p>
-          <div className="flex flex-row gap-4">
-            <Button
-              variant="outline"
-              onClick={() => setSelectedCategory("s-baseball")}
-              className={
-                selectedCategory === "s-baseball" ? selectedRingStyle : ""
-              }
-            >
-              野球用
-            </Button>
-            <Button
-              variant="outline"
-              onClick={() => setSelectedCategory("s-softball")}
-              className={
-                selectedCategory === "s-softball" ? selectedRingStyle : ""
-              }
-            >
-              ソフト用
-            </Button>
-          </div>
-        </div>
-
-        {/* --- ポジション選択 ---*/}
-        <div
-          className={`
-            transition-all duration-500 ease-in-out overflow-hidden
-            ${selectedCategory !== null ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}
-          `}
-        >
-          <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-            <p className="max-w-md text-lg leading-8 mt-10 text-zinc-600 dark:text-zinc-400">
-              ポジションを選択してください
-            </p>
-            <NativeSelect
-              className={
-                "focus-visible:ring-2 focus-visible:ring-neutral-700 focus-visible:ring-inset"
-              }
-            >
-              <NativeSelectOption value="catcher">
-                キャッチャー用
-              </NativeSelectOption>
-              <NativeSelectOption value="pitcher">
-                ピッチャー用
-              </NativeSelectOption>
-              <NativeSelectOption value="pitcher-compact">
-                ピッチャー用（コンパクト）
-              </NativeSelectOption>
-              <NativeSelectOption value="first">
-                ファースト用
-              </NativeSelectOption>
-              <NativeSelectOption value="second">セカンド用</NativeSelectOption>
-              <NativeSelectOption value="third">サード用</NativeSelectOption>
-              <NativeSelectOption value="short">ショート用</NativeSelectOption>
-              <NativeSelectOption value="second-short">
-                セカンド・ショート用
-              </NativeSelectOption>
-              <NativeSelectOption value="all-position">
-                オールポジション用
-              </NativeSelectOption>
-              <NativeSelectOption value="outfield">
-                アウトフィルダー用
-              </NativeSelectOption>
-            </NativeSelect>
-          </div>
-        </div>
+        <PositionSelector
+          isVisible={selectedCategory !== null}
+          selectedPosition={selectedPosition}
+          onPositionChange={setSelectedPosition}
+        />
       </div>
     </PageLayout>
   );
