@@ -2,6 +2,11 @@
 
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import {
+  NativeSelect,
+  NativeSelectOptGroup,
+  NativeSelectOption,
+} from "@/components/ui/native-select";
 import PageLayout from "@/components/PageLayout";
 import { useState } from "react";
 
@@ -88,100 +93,36 @@ export default function OrderPage() {
             <p className="max-w-md text-lg leading-8 mt-10 text-zinc-600 dark:text-zinc-400">
               ポジションを選択してください
             </p>
-            <div className="flex flex-row flex-wrap items-center gap-4 text-center sm:items-start sm:text-left">
-              <Button
-                variant="outline"
-                onClick={() => setSelectedPosition("pitcher")}
-                className={
-                  selectedPosition === "pitcher" ? selectedRingStyle : ""
-                }
-              >
-                ピッチャー用
-              </Button>
-              <Button
-                variant="outline"
-                onClick={() => setSelectedPosition("catcher")}
-                className={
-                  selectedPosition === "catcher" ? selectedRingStyle : ""
-                }
-              >
+            <NativeSelect
+              className={
+                "focus-visible:ring-2 focus-visible:ring-neutral-700 focus-visible:ring-inset"
+              }
+            >
+              <NativeSelectOption value="catcher">
                 キャッチャー用
-              </Button>
-              <Button
-                variant="outline"
-                onClick={() => setSelectedPosition("first")}
-                className={
-                  selectedPosition === "first" ? selectedRingStyle : ""
-                }
-              >
+              </NativeSelectOption>
+              <NativeSelectOption value="pitcher">
+                ピッチャー用
+              </NativeSelectOption>
+              <NativeSelectOption value="pitcher-compact">
+                ピッチャー用（コンパクト）
+              </NativeSelectOption>
+              <NativeSelectOption value="first">
                 ファースト用
-              </Button>
-              <Button
-                variant="outline"
-                onClick={() => setSelectedPosition("second")}
-                className={
-                  selectedPosition === "second" ? selectedRingStyle : ""
-                }
-              >
-                セカンド用
-              </Button>
-              <Button
-                variant="outline"
-                onClick={() => setSelectedPosition("third")}
-                className={
-                  selectedPosition === "third" ? selectedRingStyle : ""
-                }
-              >
-                サード用
-              </Button>
-              <Button
-                variant="outline"
-                onClick={() => setSelectedPosition("short")}
-                className={
-                  selectedPosition === "short" ? selectedRingStyle : ""
-                }
-              >
-                ショート用
-              </Button>
-              <Button
-                variant="outline"
-                onClick={() => setSelectedPosition("pitcher-compact")}
-                className={
-                  selectedPosition === "pitcher-compact"
-                    ? selectedRingStyle
-                    : ""
-                }
-              >
-                ピッチャー用 コンパクト
-              </Button>
-              <Button
-                variant="outline"
-                onClick={() => setSelectedPosition("second-short")}
-                className={
-                  selectedPosition === "second-short" ? selectedRingStyle : ""
-                }
-              >
+              </NativeSelectOption>
+              <NativeSelectOption value="second">セカンド用</NativeSelectOption>
+              <NativeSelectOption value="third">サード用</NativeSelectOption>
+              <NativeSelectOption value="short">ショート用</NativeSelectOption>
+              <NativeSelectOption value="second-short">
                 セカンド・ショート用
-              </Button>
-              <Button
-                variant="outline"
-                onClick={() => setSelectedPosition("all-position")}
-                className={
-                  selectedPosition === "all-position" ? selectedRingStyle : ""
-                }
-              >
+              </NativeSelectOption>
+              <NativeSelectOption value="all-position">
                 オールポジション用
-              </Button>
-              <Button
-                variant="outline"
-                onClick={() => setSelectedPosition("outfield")}
-                className={
-                  selectedPosition === "outfield" ? selectedRingStyle : ""
-                }
-              >
+              </NativeSelectOption>
+              <NativeSelectOption value="outfield">
                 アウトフィルダー用
-              </Button>
-            </div>
+              </NativeSelectOption>
+            </NativeSelect>
           </div>
         </div>
       </div>
