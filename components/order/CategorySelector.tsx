@@ -27,7 +27,7 @@ export function CategorySelector({
               selectedCategory === "h-baseball" ? selectedRingStyle : ""
             }
           >
-            野球用
+            硬式野球用
           </Button>
           <Button
             variant="outline"
@@ -36,7 +36,7 @@ export function CategorySelector({
               selectedCategory === "h-softball" ? selectedRingStyle : ""
             }
           >
-            ソフト用
+            硬式ソフトボール用
           </Button>
         </div>
       </div>
@@ -52,7 +52,7 @@ export function CategorySelector({
               selectedCategory === "s-baseball" ? selectedRingStyle : ""
             }
           >
-            野球用
+            軟式野球用
           </Button>
           <Button
             variant="outline"
@@ -61,7 +61,7 @@ export function CategorySelector({
               selectedCategory === "s-softball" ? selectedRingStyle : ""
             }
           >
-            ソフト用
+            軟式ソフトボール用
           </Button>
         </div>
       </div>

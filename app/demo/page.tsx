@@ -18,7 +18,28 @@ export default function OrderPage() {
   const [selectedBackStyle, setSelectedBackStyle] = useState<string | null>(
     null,
   );
+
+  const handSectionRef = useRef<HTMLDivElement | null>(null);
+  const positionSectionRef = useRef<HTMLDivElement | null>(null);
   const backStyleSectionRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (selectedCategory && handSectionRef.current) {
+      handSectionRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  }, [selectedCategory]);
+
+  useEffect(() => {
+    if (selectedHand && positionSectionRef.current) {
+      positionSectionRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  }, [selectedHand]);
 
   useEffect(() => {
     if (selectedPosition === "catcher" && backStyleSectionRef.current) {
@@ -32,15 +53,12 @@ export default function OrderPage() {
   const isNextButtonDisabled = useMemo(() => {
     const baseRequirementsMet =
       selectedCategory && selectedPosition && selectedHand;
-
     if (!baseRequirementsMet) {
       return true;
     }
-
     if (selectedPosition === "catcher") {
       return !selectedBackStyle;
     }
-
     return false;
   }, [selectedCategory, selectedPosition, selectedHand, selectedBackStyle]);
 
@@ -49,11 +67,9 @@ export default function OrderPage() {
     if (selectedCategory) params.set("category", selectedCategory);
     if (selectedPosition) params.set("position", selectedPosition);
     if (selectedHand) params.set("hand", selectedHand);
-
     if (selectedPosition === "catcher" && selectedBackStyle) {
       params.set("backStyle", selectedBackStyle);
     }
-
     return params.toString();
   }, [selectedCategory, selectedPosition, selectedHand, selectedBackStyle]);
 
@@ -72,25 +88,29 @@ export default function OrderPage() {
           基本モデルを選ぶ
         </p>
 
-        {/* --- 基本モデル選択 --- */}
         <CategorySelector
           selectedCategory={selectedCategory}
           onCategoryChange={setSelectedCategory}
         />
 
-        {/* --- 利き腕選択 --- */}
-        <HandSelector
-          selectedHand={selectedHand}
-          onHandChange={setSelectedHand}
-        />
+        {selectedCategory && (
+          <div ref={handSectionRef} className="w-full animate-slide-in">
+            <HandSelector
+              selectedHand={selectedHand}
+              onHandChange={setSelectedHand}
+            />
+          </div>
+        )}
 
-        {/* --- ポジション選択 --- */}
-        <PositionSelector
-          selectedPosition={selectedPosition}
-          onPositionChange={setSelectedPosition}
-        />
+        {selectedHand && (
+          <div ref={positionSectionRef} className="w-full animate-slide-in">
+            <PositionSelector
+              selectedPosition={selectedPosition}
+              onPositionChange={setSelectedPosition}
+            />
+          </div>
+        )}
 
-        {/* --- バックスタイル選択 (Catcher のみ) --- */}
         <BackStyleSelector
           ref={backStyleSectionRef}
           isVisible={selectedPosition === "catcher"}
@@ -98,19 +118,19 @@ export default function OrderPage() {
           onBackStyleChange={setSelectedBackStyle}
         />
 
-        <div className="w-full flex justify-center sm:justify-start mt-10">
-          {isNextButtonDisabled ? (
-            <Button size="lg" disabled={true}>
-              次のステップへ（ウェブ選択）
-            </Button>
-          ) : (
-            <Button size="lg" asChild>
-              <Link href={`/order/step2?${queryParams}`}>
-                次のステップへ（ウェブ選択）
-              </Link>
-            </Button>
-          )}
-        </div>
+        {selectedHand && (
+          <div className="w-full flex justify-center sm:justify-start mt-10 animate-slide-in">
+            {isNextButtonDisabled ? (
+              <Button size="lg" disabled={true}>
+                次のステップへ
+              </Button>
+            ) : (
+              <Button size="lg" asChild>
+                <Link href={`/order/step2?${queryParams}`}>次のステップへ</Link>
+              </Button>
+            )}
+          </div>
+        )}
       </div>
     </PageLayout>
   );
